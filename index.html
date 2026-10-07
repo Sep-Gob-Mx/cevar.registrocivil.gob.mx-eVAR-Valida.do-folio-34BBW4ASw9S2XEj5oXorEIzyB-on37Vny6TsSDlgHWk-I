@@ -17,78 +17,106 @@
             margin: 0;
             padding: 0;
             width: 100%;
+            background: #000;
         }
 
         body {
-            background: #f2f2f2;
-
-            /* Permite mover/deslizar la página */
-            overflow: auto;
+            overflow-x: auto;
+            overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
 
         .contenedor {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            margin: 0;
+            padding: 0;
+            width: max-content;
+            height: max-content;
+            line-height: 0;
         }
 
-        /* =========================
-           PC
-        ========================== */
         .imagen-pantalla {
-            width: 100vw;
-            height: 100vh;
-
-            object-fit: contain;
-            object-position: top center;
-
             display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* =====================
+           PC
+        ===================== */
+
+        @media (min-width: 601px) {
+
+            .contenedor {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .imagen-pantalla {
+                width: 100vw;
+                height: 100vh;
+
+                object-fit: contain;
+                object-position: center;
+            }
         }
 
 
-        /* =========================
+        /* =====================
            CELULAR
-        ========================== */
+        ===================== */
+
         @media (max-width: 600px) {
 
             .contenedor {
                 width: 200vw;
-
-                display: flex;
-                justify-content: flex-start;
-                align-items: flex-start;
             }
 
             .imagen-pantalla {
-                /* DOBLE DE GRANDE */
                 width: 200vw;
                 height: auto;
-
                 max-width: none;
-
-                object-fit: initial;
-
-                display: block;
             }
 
         }
-
     </style>
 </head>
 
 <body>
 
     <div class="contenedor">
-
         <img
             src="images/Sin título.jpg"
             class="imagen-pantalla"
+            id="documento"
             alt="Documento"
         >
-
     </div>
+
+
+    <script>
+        window.addEventListener("load", function () {
+
+            if (window.innerWidth <= 600) {
+
+                /*
+                   La imagen mide 200vw.
+                   Esto mueve la pantalla al centro
+                   horizontal de la imagen.
+                */
+
+                const centro =
+                    (document.documentElement.scrollWidth -
+                     window.innerWidth) / 2;
+
+                window.scrollTo({
+                    left: centro,
+                    top: 0,
+                    behavior: "instant"
+                });
+            }
+
+        });
+    </script>
 
 </body>
 </html>
