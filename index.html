@@ -2,9 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Documento</title>
 
@@ -17,48 +15,54 @@
             margin: 0;
             padding: 0;
             width: 100%;
+            min-height: 100%;
         }
 
         body {
             background: #f2f2f2;
 
-            /* PERMITE DESLIZAR */
+            /* Permite deslizar */
             overflow-y: auto;
             overflow-x: hidden;
-
-            /* Suaviza el desplazamiento en celular */
             -webkit-overflow-scrolling: touch;
         }
 
         .contenedor {
             width: 100%;
+            min-height: 100vh;
+
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
 
-            padding: 15px;
+            padding: 20px 10px;
         }
 
         .imagen-pantalla {
-            /* Tamaño cómodo en celular */
-            width: 100%;
-            max-width: 700px;
-
-            /* IMPORTANTE: no forzar altura */
+            width: 95%;
+            max-width: 850px;
             height: auto;
 
             display: block;
         }
 
-        /* CELULARES */
+        /* CELULAR */
         @media (max-width: 600px) {
 
             .contenedor {
-                padding: 10px;
+                min-height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                padding: 10px 5px;
             }
 
             .imagen-pantalla {
-                width: 100%;
+                /* Más grande en celular */
+                width: 98%;
+                max-width: none;
                 height: auto;
             }
         }
