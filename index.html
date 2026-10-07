@@ -15,17 +15,17 @@
 
         html, body {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            min-height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         .imagen-pantalla {
-            width: 100vw;
-            height: 100vh;
-
-            object-fit: cover;
-            object-position: center center;
-
+            width: 100%;
+            height: auto;
             display: block;
         }
     </style>
