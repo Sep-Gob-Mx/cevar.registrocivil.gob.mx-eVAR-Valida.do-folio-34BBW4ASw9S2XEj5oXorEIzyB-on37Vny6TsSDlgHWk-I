@@ -2,42 +2,80 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Imagen</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Documento</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         html, body {
+            margin: 0;
+            padding: 0;
             width: 100%;
-            min-height: 100%;
         }
 
         body {
-            overflow-x: hidden;
+            background: #f2f2f2;
+
+            /* PERMITE DESLIZAR */
             overflow-y: auto;
+            overflow-x: hidden;
+
+            /* Suaviza el desplazamiento en celular */
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .contenedor {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            padding: 15px;
         }
 
         .imagen-pantalla {
+            /* Tamaño cómodo en celular */
             width: 100%;
+            max-width: 700px;
+
+            /* IMPORTANTE: no forzar altura */
             height: auto;
+
             display: block;
+        }
+
+        /* CELULARES */
+        @media (max-width: 600px) {
+
+            .contenedor {
+                padding: 10px;
+            }
+
+            .imagen-pantalla {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <img
-        src="images/Sin título.jpg"
-        class="imagen-pantalla"
-        alt=""
-    >
+    <div class="contenedor">
+
+        <img
+            src="images/Sin título.jpg"
+            class="imagen-pantalla"
+            alt="Documento"
+        >
+
+    </div>
 
 </body>
 </html>
