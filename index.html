@@ -2,7 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Documento</title>
 
@@ -15,57 +17,64 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100%;
         }
 
         body {
             background: #f2f2f2;
 
-            /* Permite deslizar */
-            overflow-y: auto;
-            overflow-x: hidden;
+            /* Permite mover/deslizar la página */
+            overflow: auto;
             -webkit-overflow-scrolling: touch;
         }
 
         .contenedor {
             width: 100%;
-            min-height: 100vh;
-
             display: flex;
             justify-content: center;
-            align-items: center;
-
-            padding: 20px 10px;
+            align-items: flex-start;
         }
 
+        /* =========================
+           PC
+        ========================== */
         .imagen-pantalla {
-            width: 95%;
-            max-width: 850px;
-            height: auto;
+            width: 100vw;
+            height: 100vh;
+
+            object-fit: contain;
+            object-position: top center;
 
             display: block;
         }
 
-        /* CELULAR */
+
+        /* =========================
+           CELULAR
+        ========================== */
         @media (max-width: 600px) {
 
             .contenedor {
-                min-height: 100vh;
+                width: 200vw;
 
                 display: flex;
-                justify-content: center;
-                align-items: center;
-
-                padding: 10px 5px;
+                justify-content: flex-start;
+                align-items: flex-start;
             }
 
             .imagen-pantalla {
-                /* Más grande en celular */
-                width: 98%;
-                max-width: none;
+                /* DOBLE DE GRANDE */
+                width: 200vw;
                 height: auto;
+
+                max-width: none;
+
+                object-fit: initial;
+
+                display: block;
             }
+
         }
+
     </style>
 </head>
 
